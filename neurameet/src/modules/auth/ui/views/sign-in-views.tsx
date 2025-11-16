@@ -25,9 +25,10 @@ const formSchema = z.object({
   password: z.string().min(1,{message: "Password is required"})
 });
 
-export const signInViews = () => {
+export const SignInViews = () => {
   const router = useRouter()
   const [error, setError] = useState<string | null>(null)
+  const [pending, setPending] = useState(false)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -39,6 +40,7 @@ export const signInViews = () => {
 
   const onSubmit = (data: z.infer<typeof formSchema>) =>{
       setError(null);
+      setPending(true);
 
       authClient.signIn.email(
         {
@@ -47,6 +49,7 @@ export const signInViews = () => {
         },
         {
           onSuccess: ()=>{
+            setPending(false)
             router.push("/");
           },
           onError({error}) {
@@ -54,6 +57,7 @@ export const signInViews = () => {
           },
         }
       )
+
   }
 
   return (
@@ -119,7 +123,7 @@ export const signInViews = () => {
                   </Alert>
                 )}
 
-                <Button type='submit' className='w-full'>
+                <Button disabled={pending} type='submit' className='w-full'>
                   Sign In
                 </Button>
                 
@@ -129,10 +133,10 @@ export const signInViews = () => {
                   </span>
                 </div>
                 <div className='grid grid-cols-2 gap-4'>
-                  <Button variant='outline' type='button' className='w-full'>
+                  <Button disabled={pending} variant='outline' type='button' className='w-full'>
                     Google
                   </Button>
-                  <Button variant='outline' type='button' className='w-full'>
+                  <Button disabled={pending} variant='outline' type='button' className='w-full'>
                     GitHub
                   </Button>
                 </div>
@@ -161,4 +165,4 @@ export const signInViews = () => {
   )
 }
 
-export default signInViews
+export default SignInViews
