@@ -1,11 +1,9 @@
 import React from 'react'
-import {Card} from "@/components/ui/card"
+import SignInViews from '@/modules/auth/ui/views/sign-in-views'
 
 const page = () => {
   return (
-    <div>
-      <Card>Sign In</Card> 
-    </div>
+    <SignInViews/>
   )
 }
 

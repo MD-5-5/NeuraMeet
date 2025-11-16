@@ -1,11 +1,9 @@
-import { Card } from '@/components/ui/card'
 import React from 'react'
+import SignUpViews from "@/modules/auth/ui/views/sign-up-views"
 
 const page = () => {
   return (
-    <div>
-     <Card>Sign Up Page</Card> 
-    </div>
+    <SignUpViews/>
   )
 }
 
