@@ -21,8 +21,14 @@ import { useRouter } from 'next/navigation';
 
 
 const formSchema = z.object({
+  name: z.string().min(1,{message: "Name is required"}),
   email: z.string().email(),
-  password: z.string().min(1,{message: "Password is required"})
+  password: z.string().min(1,{message: "Password is required"}),
+  ConfirmPassword: z.string().min(1,{message: "Password is required"})
+})
+.refine((data)=> data.password === data.ConfirmPassword,{
+  message: "Passwords don't match",
+  path: ["ConfirmPassword"],
 });
 
 export const SignUpViews = () => {
@@ -33,8 +39,10 @@ export const SignUpViews = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues:{
+      name: "",
       email: "",
       password: "",
+      ConfirmPassword: "",
     }
   })
 
@@ -42,8 +50,9 @@ export const SignUpViews = () => {
       setError(null);
       setPending(true);
 
-      authClient.signIn.email(
+      authClient.signUp.email(
         {
+          name: data.name,
           email: data.email,
           password: data.password,
         },
@@ -69,11 +78,31 @@ export const SignUpViews = () => {
               <div className='flex flex-col gap-6'>
                 <div className='flex flex-col items-center text-center'>
                   <h1 className='text-2xl font-bold'>
-                    Welcome Back!
+                    Let&apos;s get started
                   </h1>
                   <p className='text-muted-foreground text-balance'>
-                    Login to your Account
+                    Create your Account
                   </p>
+                </div>
+
+                <div className='grid gap-3'>
+                  <FormField
+                    control={form.control}
+                    name='name'
+                    render={({field})=>(
+                      <FormItem>
+                        <FormLabel>Name</FormLabel>
+                        <FormControl>
+                          <Input
+                          type='name'
+                          placeholder='MD5'
+                          {...field}
+                          />
+                        </FormControl>
+                        <FormMessage/>
+                      </FormItem>
+                    )}
+                  />
                 </div>
 
                 <div className='grid gap-3'>
@@ -116,6 +145,26 @@ export const SignUpViews = () => {
                   />
                 </div>
 
+                <div className='grid gap-3'>
+                  <FormField
+                    control={form.control}
+                    name='ConfirmPassword'
+                    render={({field})=>(
+                      <FormItem>
+                        <FormLabel>ConfirmPassword</FormLabel>
+                        <FormControl>
+                          <Input
+                          type='password'
+                          placeholder='********'
+                          {...field}
+                          />
+                        </FormControl>
+                        <FormMessage/>
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
                 {!!error && (
                   <Alert className='bg-destructive/10 border-none'>
                     <OctagonAlertIcon className='h-4 w-4 text-destructive!'/>
@@ -141,9 +190,9 @@ export const SignUpViews = () => {
                   </Button>
                 </div>
                 <div className='text-center text-sm'>
-                    Don&apos;t have an account?{" "}
-                    <Link href="/sign-up" className='underline underline-offset-4'>
-                      Sign Up
+                    Already have an account?{" "}
+                    <Link href="/sign-in" className='underline underline-offset-4'>
+                      Sign In
                     </Link>
                 </div>
               </div>
@@ -165,4 +214,4 @@ export const SignUpViews = () => {
   )
 }
 
-export default SignInViews
+export default SignUpViews
