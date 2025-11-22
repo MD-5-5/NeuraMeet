@@ -2,7 +2,6 @@
 
 import { useTRPC } from "@/trpc/client";
 import { AgentGetOne } from "../../types";
-import { useRouter } from "next/navigation";
 import {useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -11,19 +10,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { GeneratedAvatar } from "@/components/generate-avatar";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  useFormField,
   Form,
   FormItem,
   FormLabel,
   FormControl,
-  FormDescription,
   FormMessage,
   FormField,
 } from "@/components/ui/form"
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Ghost } from "lucide-react";
 import { toast } from "sonner";
 
 interface AgentFormProps{
@@ -39,12 +35,27 @@ export const AgentForm = ({
     initialValues,
 } : AgentFormProps) =>{
     const trpc = useTRPC();
-    const router = useRouter();
     const queryClient = useQueryClient();
 
 
     const createAgent = useMutation(
         trpc.agents.create.mutationOptions({
+            onSuccess: async () =>{
+                    await queryClient.invalidateQueries(
+                    trpc.agents.getMany.queryOptions({})
+                )
+
+                onSuccess?.();
+            },
+            onError: (error) => {
+                toast.error(error.message)
+            },
+            
+        })
+    )
+
+    const updateAgent = useMutation(
+        trpc.agents.update.mutationOptions({
             onSuccess: async () =>{
                     await queryClient.invalidateQueries(
                     trpc.agents.getMany.queryOptions({})
@@ -75,11 +86,11 @@ export const AgentForm = ({
 
 
     const isEdit = !! initialValues?.id;
-    const isPending = createAgent.isPending;
+    const isPending = createAgent.isPending || updateAgent.isPending;
 
     const onSubmit = (values:z.infer<typeof agentsInsertSchema>) =>{
         if(isEdit) {
-            console.log("TODO: updateAgent")
+            updateAgent.mutate({...values, id:initialValues.id})
         } else{
             createAgent.mutate(values)
         }
