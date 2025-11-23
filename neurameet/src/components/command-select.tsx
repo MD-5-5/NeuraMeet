@@ -10,6 +10,7 @@ import{
     CommandList,
     CommandResponsiveDialog,
 } from "@/components/ui/command"
+import { boolean } from "drizzle-orm/gel-core";
 
 
 interface Props {
@@ -31,12 +32,15 @@ export const CommandSelect = ({
     onSelect,
     onSearch,
     value,
-    placeholder,
+    placeholder= "Select an option",
     className,
 }:Props) =>{
     const [open, setOpen] = useState(false)
     const selectedOption = options.find((options) => options.value === value)
-
+    const handleOpenChange =(open:boolean) =>{
+        onSearch?.("")
+        setOpen(open)
+    }
 
     return(
         <>
@@ -58,7 +62,7 @@ export const CommandSelect = ({
             <CommandResponsiveDialog
             shouldFilter={!onSearch}
             open={open}
-            onOpenChange={setOpen}
+            onOpenChange={handleOpenChange}
             >
                 <CommandInput placeholder="Search.." onValueChange={onSearch}/>
                 <CommandList>
