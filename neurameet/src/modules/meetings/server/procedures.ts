@@ -1,8 +1,8 @@
-import { agents, meetings } from "@/database/Schema";
+import { meetings } from "@/database/Schema";
 import { createTRPCRouter,  protectedProcedure } from "@/trpc/init";
 import { db } from "@/database";
 import {z} from "zod"
-import { and, count, desc, eq, getTableColumns, ilike, sql } from "drizzle-orm";
+import { and, count, desc, eq, getTableColumns, ilike } from "drizzle-orm";
 import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE, MIN_PAGE_SIZE } from "@/constants";
 import { TRPCError } from "@trpc/server";
 
@@ -10,22 +10,23 @@ export const meetingsRouter = createTRPCRouter({
     getOne: protectedProcedure.input(z.object({ id:z.string() })).query(async({input, ctx})=>{
         const [existingMeeting] = await db
         .select({
-            ...getTableColumns(agents),
+            ...getTableColumns(meetings),
         })
         .from(meetings)
         .where(
             and
-            (eq(agents.id, input.id),
-            eq(agents.userId, ctx.auth.user.id),
+            (eq(meetings.id, input.id),
+            eq(meetings.userId, ctx.auth.user.id),
             )
         );
 
-        if(!existingAgent){
-            throw new TRPCError({code:"NOT_FOUND", message:"Agent not found"})
+        if(!existingMeeting){
+            throw new TRPCError({code:"NOT_FOUND", message:"Meeting not found"})
         }          
 
-        return existingAgent
+        return existingMeeting;
     }),
+
     getMany : protectedProcedure
     .input(z.object({
         page:z.number().default(DEFAULT_PAGE),
@@ -42,29 +43,28 @@ export const meetingsRouter = createTRPCRouter({
 
         const data = await db
         .select({
-            meetingCount: sql<number>`5`,
-            ...getTableColumns(agents),
+            ...getTableColumns(meetings),
         })
-        .from(agents)
+        .from(meetings)
         .where(
             and(
-                eq(agents.userId, ctx.auth.user.id),
-                search ? ilike(agents.name, `%${search}%`) : undefined,
+                eq(meetings.userId, ctx.auth.user.id),
+                search ? ilike(meetings.name, `%${search}%`) : undefined,
             )
         )
 
-        .orderBy(desc(agents.createdAt), desc(agents.id))
+        .orderBy(desc(meetings.createdAt), desc(meetings.id))
         .limit(pageSize)
         .offset((page-1) * pageSize)
 
 
         const [total] = await db
         .select({count:count()})
-        .from(agents)
+        .from(meetings)
         .where(
             and(
-                eq(agents.userId, ctx.auth.user.id),
-                search ? ilike(agents.name, `%${search}%`) : undefined,
+                eq(meetings.userId, ctx.auth.user.id),
+                search ? ilike(meetings.name, `%${search}%`) : undefined,
             )
         )
 
