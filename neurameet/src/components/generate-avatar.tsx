@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 
-interface GenerateAvatarProps{
+interface GeneratedAvatarProps{
     seed:string;
     className? : string;
     variant: "botttsNeutral" | "initals"
@@ -25,8 +25,8 @@ export const GeneratedAvatar = ({
     } else{
         avatar = createAvatar(initials, {
             seed,
-            fontweight:500,
-            fontsize:42,
+            fontWeight:500,
+            fontSize:42,
         });
     }
 
