@@ -13,6 +13,7 @@ import{
 import {db} from "@/database"
 import {agents, meetings} from "@/database/Schema"
 import {streamVideo} from "@/lib/stream-video"
+import { inngest } from "@/inngest/client"
 
 function verifySignatureWithSDK(body: string, signature: string) : boolean {
     return streamVideo.verifyWebhook(body, signature);
@@ -140,6 +141,13 @@ export async function POST(req:NextRequest) {
 
             }
 
+            await inngest.send({
+                name: "meetings/processing",
+                data:{
+                    meetingId: updateMeeting.id,
+                    transcriptUrl: updateMeeting.transcriptUrl,
+                }
+            })
     } else if (eventType === "call.recording_ready"){
         const event = payload as CallRecordingReadyEvent;
         const meetingId = event.call_cid.split(":")[1];
@@ -153,3 +161,5 @@ export async function POST(req:NextRequest) {
     }
     return NextResponse.json({status: "ok"})
 }
+
+//http://localhost:8288

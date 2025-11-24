@@ -22,6 +22,7 @@ const statusIconMap = {
     active: LoaderIcon,
     completed: CircleCheckIcon,
     cancelled: CircleXIcon,
+    processing: LoaderIcon,
 };
 
 const statusColorMap ={
