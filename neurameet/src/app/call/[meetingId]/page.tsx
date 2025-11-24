@@ -10,8 +10,7 @@ interface Props{
         meetingId: string;
     }>
 }
-
-export const page = async({params} : Props)=>{
+ const page = async({params} : Props)=>{
     const {meetingId} = await params;
     const session = await auth.api.getSession ({
         headers: await headers(),
@@ -32,3 +31,5 @@ export const page = async({params} : Props)=>{
         </HydrationBoundary>
     )
 }
+
+export default page
