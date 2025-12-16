@@ -1,16 +1,49 @@
 import { agents, meetings } from "@/database/Schema";
 import { createTRPCRouter,  protectedProcedure } from "@/trpc/init";
 import { db } from "@/database";
+import JSONL from "jsonl-parse-stringify";
 import {z} from "zod"
 import { and, count, desc, eq, getTableColumns, ilike, sql } from "drizzle-orm";
 import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE, MIN_PAGE_SIZE } from "@/constants";
 import { TRPCError } from "@trpc/server";
 import { meetingsInsertSchema, meetingsUpdateSchema } from "../schema";
-import { MeetingStatus } from "../types";
+import { MeetingStatus, StreamTranscriptItem } from "../types";
 import { streamVideo } from "@/lib/stream-video";
 import { generateAvatarUri } from "@/lib/avatar";
 
 export const meetingsRouter = createTRPCRouter({
+    getTranscript : protectedProcedure
+        .input(z.object({ id: z.string()}))
+        .query(async ({ input, ctx}) => {
+            const [existingMeeting] = await db
+                .select()
+                .from(meetings)
+                .where(
+                    and(eq(meetings.id, input.id), eq(meetings.userId, ctx.auth.user.id))
+                );
+
+                if(!existingMeeting){
+                    throw new TRPCError({
+                        code: "NOT_FOUND",
+                        message:"Meeting not found",
+                    });
+                }
+
+                if(!existingMeeting.transcriptUrl) {
+                    return [];
+                }
+                
+                const transcript = await fetch(existingMeeting.transcriptUrl)
+                    .then((res) => res.text())
+                    .then((text) => JSONL.parse<StreamTranscriptItem>(text))
+                    .catch(() => {
+                        return [];
+                    });
+
+                const speakerIds = [
+                    ...new Set(transcript.map((item) => item.speaker_id)),
+                ];
+        }),
     generateToken: protectedProcedure.mutation( async({ctx}) => {
         await streamVideo.upsertUsers([
             {
