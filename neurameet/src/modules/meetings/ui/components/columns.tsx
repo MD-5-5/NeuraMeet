@@ -3,19 +3,18 @@
 import { ColumnDef } from "@tanstack/react-table"
 import { MeetingGetmany } from "../../types"
 import { format } from "date-fns"
-import humanizeDuration from "humanize-duration"
 import { GeneratedAvatar } from "@/components/generate-avatar"
 import { CircleCheckIcon, CircleXIcon, ClockArrowUpIcon, ClockFadingIcon, CornerDownRightIcon, LoaderIcon} from "lucide-react"
 import { Badge } from "@/components/ui/badge"
-import { cn } from "@/lib/utils"
+import { cn, formatDuration } from "@/lib/utils"
 
-function formatDuration(seconds: number){
-    return humanizeDuration(seconds * 1000, {
-        largest: 1,
-        round: true,
-        units: ["h", "m","s"],
-    })
-}
+// function formatDuration(seconds: number){
+//     return humanizeDuration(seconds * 1000, {
+//         largest: 1,
+//         round: true,
+//         units: ["h", "m","s"],
+//     })
+// }
 
 const statusIconMap = {
     upcoming: ClockArrowUpIcon,
