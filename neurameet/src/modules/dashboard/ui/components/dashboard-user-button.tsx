@@ -20,7 +20,6 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { GeneratedAvatar } from "@/components/generate-avatar";
 import { ChevronDownIcon, CreditCardIcon, LogOutIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { fromTheme } from "tailwind-merge";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
 
@@ -54,7 +53,7 @@ export const DashboardUserButton = () =>{
                 ):(
                     <GeneratedAvatar
                     seed = {data.user.name}
-                    variant="initials"
+                    variant="initals"
                     className="size-9 mr-3"
                     />
                 )}   
@@ -74,7 +73,7 @@ export const DashboardUserButton = () =>{
                         <DrawerDescription>{data.user.email}</DrawerDescription>
                     </DrawerHeader>
                         <DrawerFooter>
-                            <Button variant="outline" onClick={()=> {}}>
+                            <Button variant="outline" onClick={()=> authClient.customer.portal()}>
                                 <CreditCardIcon className="size-4 text-black"/>
                                 Billing
                             </Button>
@@ -97,7 +96,7 @@ export const DashboardUserButton = () =>{
                 ):(
                     <GeneratedAvatar
                     seed = {data.user.name}
-                    variant="initials"
+                    variant="initals"
                     className="size-9 mr-3"
                     />
                 )}   
@@ -120,6 +119,7 @@ export const DashboardUserButton = () =>{
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator/>
                 <DropdownMenuItem
+                onClick={()=> authClient.customer.portal()}
                 className="cursor-pointer flex items-center justify-between"
                 >
                     Billing

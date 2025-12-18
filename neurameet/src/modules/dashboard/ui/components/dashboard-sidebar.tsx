@@ -15,6 +15,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { DashboardTrial } from "./dashboard-trial"
 import { icons } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import { usePathname } from "next/navigation"
@@ -110,6 +111,7 @@ export const DashboardSidebar = () => {
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter className="text-white">
+                <DashboardTrial/>
                 <DashboardUserButton/>
             </SidebarFooter>
         </Sidebar>
