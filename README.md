@@ -2,12 +2,14 @@
 
 > AI-Powered Virtual Meeting Platform with Intelligent Agents
 
+--- 
+
 <p align="center">
-  <img src=".github/images/image_1.png" alt="NeuraMeet Dashboard" width="800"/>
+  <img src="neurameet/.github/images/image_4.png" alt="NeuraMeet Dashboard" width="800"/>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Next.js-15-black" alt="Next.js"/>
+  <img src="https://img.shields.io/badge/Next.js-16-black" alt="Next.js"/>
   <img src="https://img.shields.io/badge/React-19-blue" alt="React"/>
   <img src="https://img.shields.io/badge/TypeScript-5.0-blue" alt="TypeScript"/>
 </p>
@@ -18,19 +20,11 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 
 ---
 
-## 🎬 Product Demo
-
-<p align="center">
-  <img src=".github/images/image_2.png" alt="NeuraMeet Meeting Room" width="700"/>
-</p>
-
----
-
 ## ✨ Key Features
 
 ### 🤖 AI-Powered Meetings
 
-<img src=".github/images/image_3.png" alt="AI Agent Configuration" width="600"/>
+<img src="neurameet/.github/images/image_3.png" alt="AI Agent Configuration" width="600"/>
 
 - **Custom Real-Time Agents** - Create AI agents with custom instructions that act according to your needs
 - **Interactive AI Conversations** - Invite AI agents directly into your video calls for real-time interaction
@@ -38,7 +32,7 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 
 ### 📹 Video & Communication
 
-<img src=".github/images/image_4.png" alt="Video Meeting Interface" width="600"/>
+<img src="neurameet/.github/images/image_10.png" alt="Video Meeting Interface" width="600"/>
 
 - **HD Video Calls** - Crystal clear video meetings powered by Stream Video SDK
 - **Real-Time Chat** - Integrated chat functionality using Stream Chat SDK
@@ -46,7 +40,7 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 
 ### 📝 Post-Meeting Intelligence
 
-<img src=".github/images/image_5.png" alt="Meeting Transcript and Summary" width="600"/>
+<img src="neurameet/.github/images/image_11.png" alt="Meeting Transcript and Summary" width="600"/>
 
 - **AI-Generated Summaries** - Automatic meeting summaries generated after each call
 - **Full Transcripts** - Complete transcription of all meeting conversations
@@ -57,7 +51,7 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 
 ### 📊 Meeting Management
 
-<img src=".github/images/image_6.png" alt="Meeting Dashboard" width="600"/>
+<img src="neurameet/.github/images/image_3.png" alt="Meeting Dashboard" width="600"/>
 
 - **Meeting History** - Keep track of all your past meetings
 - **Meeting Statuses** - Monitor ongoing, scheduled, and completed meetings
@@ -65,7 +59,7 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 
 ### 💳 Subscription & Credits
 
-<img src=".github/images/image_7.png" alt="Pricing Plans" width="600"/>
+<img src="neurameet/.github/images/image_2.png" alt="Pricing Plans" width="600"/>
 
 - **Free Trial** - Get 3 free credits to try agents and meetings
 - **Credit System** - Each agent creation and meeting costs 1 credit
@@ -75,7 +69,7 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 
 ### ⚡ User Experience
 
-<img src=".github/images/image_8.png" alt="User Interface" width="600"/>
+<img src="neurameet/.github/images/image_9.png" alt="User Interface" width="600"/>
 
 - **Quick Search** - Press `Ctrl+K` (or `Cmd+K` on Mac) to instantly open the search bar
 - **Secure Authentication** - Better Auth integration for secure login
@@ -84,37 +78,22 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 
 ---
 
-## 📸 More Screenshots
+## 📸 Responsiveness
 
 <details>
 <summary>🖼️ Click to view all screenshots</summary>
 
+### Home Overview
+![Home](neurameet/.github/images/image_5.png)
+
 ### Dashboard Overview
-![Dashboard](.github/images/image_1.png)
-
-### Live Meeting Room
-![Meeting Room](.github/images/image_2.png)
-
-### Video Interface
-![Video Interface](.github/images/image_3.png)
-
-### AI Agent Configuration
-![AI Configuration](.github/images/image_4.png)
-
-### Meeting Transcript
-![Transcript](.github/images/image_5.png)
-
-### Meeting Management
-![Meeting Management](.github/images/image_6.png)
+![Dashboard](neurameet/.github/images/image_6.png)
 
 ### Pricing Page
-![Pricing](.github/images/image_7.png)
+![Pricing](neurameet/.github/images/image_8.png)
 
 ### User Interface Details
-![UI Details](.github/images/image_8.png)
-
-### Additional Features
-![Features](.github/images/image_9.png)
+![UI Details](neurameet/.github/images/image_7.png)
 
 </details>
 
@@ -160,7 +139,7 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/neurameet.git
+git clone https://github.com/MD-5-5/NeuraMeet.git
 cd neurameet
 ```
 
