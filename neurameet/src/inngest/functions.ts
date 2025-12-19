@@ -72,7 +72,6 @@ export const meetingsProcessing = inngest.createFunction(
       })
     });
 
-    // Format transcript for better summarization
     const formattedTranscript = await step.run("format-transcript", async () => {
       console.log("Formatting transcript...");
       return transcriptWithSpeakers
@@ -80,27 +79,22 @@ export const meetingsProcessing = inngest.createFunction(
         .join('\n');
     });
 
-    // Generate AI summary
     const summary = await step.run("generate-ai-summary", async () => {
       console.log("Starting AI summarization...");
       console.log("Transcript length:", formattedTranscript.length);
       
-      // Check if API key exists
       if (!process.env.OPENAI_API_KEY) {
         console.error("OPENAI_API_KEY not found!");
-        // Fallback to simple summary
         const speakerCount = new Set(transcriptWithSpeakers.map(item => item.user.name)).size;
         const messageCount = transcriptWithSpeakers.length;
         return `Meeting summary: ${speakerCount} speakers participated with ${messageCount} total messages. (AI summarization unavailable - API key missing)`;
       }
 
       try {
-        // Initialize OpenAI client
         const openai = new OpenAI({
           apiKey: process.env.OPENAI_API_KEY
         });
 
-        // Call OpenAI API directly
         const completion = await openai.chat.completions.create({
           model: "gpt-4o",
           messages: [
@@ -122,7 +116,6 @@ export const meetingsProcessing = inngest.createFunction(
         return aiSummary;
       } catch (error) {
         console.error("AI summarization failed:", error);
-        // Fallback to simple summary
         const speakerCount = new Set(transcriptWithSpeakers.map(item => item.user.name)).size;
         const messageCount = transcriptWithSpeakers.length;
         return `Meeting summary: ${speakerCount} speakers participated with ${messageCount} total messages. (AI summarization failed: ${error instanceof Error ? error.message : 'Unknown error'})`;

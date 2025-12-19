@@ -22,11 +22,9 @@ export const HomeView = () => {
 
   return (
     <div className="flex-1 flex items-center justify-center relative overflow-hidden bg-white">
-      {/* Floating orbs */}
       <div className="absolute top-20 left-20 w-64 h-64 bg-[#51B16A] rounded-full blur-3xl opacity-10 animate-float" />
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#093C23] rounded-full blur-3xl opacity-10 animate-float-delayed" />
       
-      {/* Main content */}
       <div 
         className="relative z-10 cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
@@ -37,7 +35,6 @@ export const HomeView = () => {
         }}
       >
         <div className="flex flex-col items-center gap-8">
-          {/* Animated letters */}
           <div className="flex gap-1 md:gap-2">
             {letters.map((letter, i) => (
               <span
@@ -55,7 +52,6 @@ export const HomeView = () => {
             ))}
           </div>
 
-          {/* Glowing line */}
           <div 
             className="h-1 bg-gradient-to-r from-transparent via-[#093C23] to-transparent"
             style={{
@@ -65,7 +61,6 @@ export const HomeView = () => {
             }}
           />
 
-          {/* Subtitle */}
           <p 
             className="text-[#093C23] text-xl md:text-2xl tracking-[0.3em] font-light opacity-0"
             style={{
@@ -75,47 +70,36 @@ export const HomeView = () => {
             AI-POWERED MEETINGS
           </p>
 
-          {/* Robot Icon */}
           <div className="relative mt-8 animate-float">
             <svg 
               className="w-24 h-24 md:w-32 md:h-32 text-[#093C23] drop-shadow-xl" 
               fill="currentColor" 
               viewBox="0 0 24 24"
             >
-              {/* Antenna */}
               <circle cx="12" cy="2" r="1" className="animate-pulse" />
               <line x1="12" y1="3" x2="12" y2="5" stroke="currentColor" strokeWidth="0.5" />
               
-              {/* Head */}
               <rect x="8" y="5" width="8" height="7" rx="1" />
               
-              {/* Eyes */}
               <circle cx="10" cy="8" r="1" fill="#51B16A" className="animate-pulse" />
               <circle cx="14" cy="8" r="1" fill="#51B16A" className="animate-pulse" style={{ animationDelay: '0.2s' }} />
               
-              {/* Smile */}
               <path d="M 10 10 Q 12 11 14 10" stroke="#51B16A" strokeWidth="0.5" fill="none" strokeLinecap="round" />
               
-              {/* Body */}
               <rect x="9" y="12" width="6" height="6" rx="1" />
               
-              {/* Chest panel */}
               <rect x="10.5" y="14" width="3" height="2" rx="0.3" fill="#51B16A" opacity="0.4" />
               
-              {/* Arms */}
               <rect x="6" y="13" width="2" height="4" rx="0.5" className="animate-wiggle" />
               <rect x="16" y="13" width="2" height="4" rx="0.5" className="animate-wiggle" style={{ animationDelay: '0.3s' }} />
               
-              {/* Legs */}
               <rect x="9.5" y="18" width="2" height="3" rx="0.5" />
               <rect x="12.5" y="18" width="2" height="3" rx="0.5" />
               
-              {/* Feet */}
               <ellipse cx="10.5" cy="21" rx="1.2" ry="0.5" />
               <ellipse cx="13.5" cy="21" rx="1.2" ry="0.5" />
             </svg>
             
-            {/* Glow effect around robot */}
             <div className="absolute inset-0 bg-[#093C23] rounded-full blur-2xl opacity-20 -z-10 scale-150 animate-pulse" />
           </div>
         </div>
