@@ -3,7 +3,7 @@
 > AI-Powered Virtual Meeting Platform with Intelligent Agents
 
 <p align="center">
-  <img src=".github/images/Screenshot%202025-12-19%20160651.png" alt="NeuraMeet Dashboard" width="800"/>
+  <img src=".github/images/image_1.png" alt="NeuraMeet Dashboard" width="800"/>
 </p>
 
 <p align="center">
@@ -21,7 +21,7 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 ## 🎬 Product Demo
 
 <p align="center">
-  <img src=".github/images/Screenshot%202025-12-19%20171212.png" alt="NeuraMeet Meeting Room" width="700"/>
+  <img src=".github/images/image_2.png" alt="NeuraMeet Meeting Room" width="700"/>
 </p>
 
 ---
@@ -30,7 +30,7 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 
 ### 🤖 AI-Powered Meetings
 
-<img src=".github/images/Screenshot%202025-12-19%20172035.png" alt="AI Agent Configuration" width="600"/>
+<img src=".github/images/image_3.png" alt="AI Agent Configuration" width="600"/>
 
 - **Custom Real-Time Agents** - Create AI agents with custom instructions that act according to your needs
 - **Interactive AI Conversations** - Invite AI agents directly into your video calls for real-time interaction
@@ -38,7 +38,7 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 
 ### 📹 Video & Communication
 
-<img src=".github/images/Screenshot%202025-12-19%20171841.png" alt="Video Meeting Interface" width="600"/>
+<img src=".github/images/image_4.png" alt="Video Meeting Interface" width="600"/>
 
 - **HD Video Calls** - Crystal clear video meetings powered by Stream Video SDK
 - **Real-Time Chat** - Integrated chat functionality using Stream Chat SDK
@@ -46,7 +46,7 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 
 ### 📝 Post-Meeting Intelligence
 
-<img src=".github/images/Screenshot%202025-12-19%20173925.png" alt="Meeting Transcript and Summary" width="600"/>
+<img src=".github/images/image_5.png" alt="Meeting Transcript and Summary" width="600"/>
 
 - **AI-Generated Summaries** - Automatic meeting summaries generated after each call
 - **Full Transcripts** - Complete transcription of all meeting conversations
@@ -57,7 +57,7 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 
 ### 📊 Meeting Management
 
-<img src=".github/images/Screenshot%202025-12-19%20173936.png" alt="Meeting Dashboard" width="600"/>
+<img src=".github/images/image_6.png" alt="Meeting Dashboard" width="600"/>
 
 - **Meeting History** - Keep track of all your past meetings
 - **Meeting Statuses** - Monitor ongoing, scheduled, and completed meetings
@@ -65,7 +65,7 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 
 ### 💳 Subscription & Credits
 
-<img src=".github/images/Screenshot%202025-12-19%20174001.png" alt="Pricing Plans" width="600"/>
+<img src=".github/images/image_7.png" alt="Pricing Plans" width="600"/>
 
 - **Free Trial** - Get 3 free credits to try agents and meetings
 - **Credit System** - Each agent creation and meeting costs 1 credit
@@ -75,7 +75,7 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 
 ### ⚡ User Experience
 
-<img src=".github/images/Screenshot%202025-12-19%20174038.png" alt="User Interface" width="600"/>
+<img src=".github/images/image_8.png" alt="User Interface" width="600"/>
 
 - **Quick Search** - Press `Ctrl+K` (or `Cmd+K` on Mac) to instantly open the search bar
 - **Secure Authentication** - Better Auth integration for secure login
@@ -90,31 +90,31 @@ NeuraMeet is a cutting-edge virtual meeting platform that revolutionizes online 
 <summary>🖼️ Click to view all screenshots</summary>
 
 ### Dashboard Overview
-![Dashboard](.github/images/Screenshot%202025-12-19%20160651.png)
+![Dashboard](.github/images/image_1.png)
 
 ### Live Meeting Room
-![Meeting Room](.github/images/Screenshot%202025-12-19%20171212.png)
+![Meeting Room](.github/images/image_2.png)
 
 ### Video Interface
-![Video Interface](.github/images/Screenshot%202025-12-19%20171841.png)
+![Video Interface](.github/images/image_3.png)
 
 ### AI Agent Configuration
-![AI Configuration](.github/images/Screenshot%202025-12-19%20172035.png)
+![AI Configuration](.github/images/image_4.png)
 
 ### Meeting Transcript
-![Transcript](.github/images/Screenshot%202025-12-19%20173925.png)
+![Transcript](.github/images/image_5.png)
 
 ### Meeting Management
-![Meeting Management](.github/images/Screenshot%202025-12-19%20173936.png)
+![Meeting Management](.github/images/image_6.png)
 
 ### Pricing Page
-![Pricing](.github/images/Screenshot%202025-12-19%20174001.png)
+![Pricing](.github/images/image_7.png)
 
 ### User Interface Details
-![UI Details](.github/images/Screenshot%202025-12-19%20174038.png)
+![UI Details](.github/images/image_8.png)
 
 ### Additional Features
-![Features](.github/images/Screenshot%202025-12-19%20174301.png)
+![Features](.github/images/image_9.png)
 
 </details>
 
