@@ -253,7 +253,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 - Stream for video and chat infrastructure
 - OpenAI for AI capabilities
-- All open-source contributors
 
 ---
 
